@@ -1,0 +1,16 @@
+							{{- define "innerContent" }}
+							{{ .Content }}
+							{{- range .Pages }}
+							<header>
+								<h4>{{ .Title }}</h4>
+								<p>{{ .Params.subtitle }}</p>
+							</header>
+							{{- with index (where (.Resources.ByType "image") ".Params.cover" true) 0 }}
+							<p><span class="image"><img src="{{ (.Fit "300x500").RelPermalink }}" alt="{{ .Title }}" /></span></p>
+							{{- end }}
+							<p>{{ .Description }}</p>
+							<ul class="actions">
+								<li><a href="{{ .RelPermalink }}" class="button">{{ i18n "Get to know" (dict "name" .LinkTitle) }}</a></li>
+							</ul>
+							{{- end }}
+							{{- end }}

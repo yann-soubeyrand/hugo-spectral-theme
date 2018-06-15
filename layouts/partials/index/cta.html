@@ -1,0 +1,19 @@
+				{{- /**/}}
+				{{- with .Site.GetPage "page" "contact" }}
+				<section id="cta" class="wrapper style4">
+					<div class="inner">
+						<header>
+							<h2>{{ .Title }}</h2>
+							<p>{{ .Site.Params.contact.name }}<br />
+							{{- range .Site.Params.contact.address }}
+							{{ . }}<br />
+							{{- end }}
+							{{ .Site.Params.contact.phone }}</p>
+						</header>
+						<ul class="actions vertical">
+							<li><a href="{{ .RelPermalink }}" class="button special fit">{{ .Parent.Params.buttons.contact.label }}</a></li>
+						</ul>
+					</div>
+				</section>
+				{{- end }}
+				{{- /**/ -}}

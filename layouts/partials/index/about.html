@@ -1,0 +1,15 @@
+				{{- /**/}}
+				{{- with .Site.GetPage "section" "about" }}
+				<section id="about" class="wrapper style1 special">
+					<div class="inner">
+						<header class="major">
+							<h2>{{ .Title }}</h2>
+							{{ .Summary }}
+						</header>
+						<ul class="actions">
+							<li><a href="{{ .RelPermalink }}" class="button fit">{{ .Parent.Params.buttons.about.label }}</a></li>
+						</ul>
+					</div>
+				</section>
+				{{- end }}
+				{{- /**/ -}}

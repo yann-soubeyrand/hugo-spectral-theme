@@ -1,0 +1,33 @@
+							{{- define "innerContent" }}
+							<p class="align-center">{{ .Site.Params.contact.name }}<br />
+							{{- range .Site.Params.contact.address }}
+							{{ . }}<br />
+							{{- end }}
+							{{ .Site.Params.contact.phone }}</p>
+							<form name="contact" method="post" netlify>
+								<div class="row uniform">
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="name" id="name" required placeholder="{{ i18n "Name" }}" />
+									</div>
+									<div class="6u$ 12u$(xsmall)">
+										<input type="email" name="email" id="email" required placeholder="{{ i18n "Email" }}" />
+									</div>
+									<div class="12u$">
+										<input type="text" name="subject" id="subject" required placeholder="{{ i18n "Subject" }}" />
+									</div>
+									<div class="12u$">
+										<textarea name="message" id="message" required placeholder="{{ i18n "Message" }}" rows="6"></textarea>
+									</div>
+									<div class="12u align-right">
+										<label class="file-upload icon fa-paperclip">{{ i18n "Attachment" }}<input type="file" name="attachment" id="attachment" /></label>
+									</div>
+									{{ .Content }}
+									<div class="12u$">
+										<ul class="actions">
+											<li><button type="submit" class="special icon fa-upload">{{ i18n "Send" }}</button></li>
+											<li><button type="reset" class="icon fa-eraser">{{ i18n "Reset" }}</button></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+							{{- end }}

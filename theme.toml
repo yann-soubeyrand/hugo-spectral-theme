@@ -1,0 +1,17 @@
+name = "Spectral"
+description = "Hugo port of HTML5 UP's Spectral theme"
+homepage = "https://github.com/yann-soubeyrand/hugo-spectral-theme"
+license = "CC BY-SA 4.0"
+licenselink = "https://creativecommons.org/licenses/by-sa/4.0/"
+tags = []
+features = []
+min_version = "0.42"
+
+[author]
+  name = "Yann Soubeyrand"
+  homepage = "https://www.linkedin.com/in/yann-soubeyrand"
+
+[original]
+  name = "Spectral"
+  homepage = "https://html5up.net/spectral"
+  repo = "https://html5up.net/spectral/download"

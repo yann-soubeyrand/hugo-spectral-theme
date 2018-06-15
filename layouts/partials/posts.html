@@ -1,0 +1,21 @@
+					{{- /**/}}
+					{{- $hl1 := .HeadingLevel }}
+					{{- $hl2 := add $hl1 1 }}
+					{{- range .Pages }}
+					<section class="spotlight">
+						<div class="image">
+							{{- with index (where (.Resources.ByType "image") ".Params.cover" true) 0 }}
+							<img src="{{ (.Fit "800x800").RelPermalink }}" alt="{{ .Title }}" />
+							{{- end }}
+						</div>
+						<div class="content">
+							<h{{ $hl1 }}>{{ .Title }}</h{{ $hl1 }}>
+							<h{{ $hl2 }}>{{ .Date.Format "02.01.2006" }}</h{{ $hl2 }}>
+							{{ .Summary }}
+							<ul class="actions">
+								<li><a href="{{ .RelPermalink }}" class="button special small">{{ i18n "Read more" }}</a></li>
+							</ul>
+						</div>
+					</section>
+					{{- end }}
+					{{- /**/ -}}

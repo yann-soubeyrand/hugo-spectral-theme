@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{{ .Site.Title }} - {{ block "breadcrumb" . }}{{ with .Parent }}{{ template "breadcrumb" . }} > {{ end }}{{ .LinkTitle }}{{ end }}</title>
+		{{- with .Description }}
+		<meta name="description" content="{{ . }}" />
+		{{- end }}
+		{{- partial "meta" . }}
+		{{ .Hugo.Generator }}
+		{{ safeHTML "<!--[if lte IE 8]>" }}<script src="/js/ie/html5shiv.js"></script>{{ safeHTML "<![endif]-->" }}
+		<link rel="stylesheet" href="/css/main.css" />
+		{{ safeHTML "<!--[if lte IE 8]>" }}<link rel="stylesheet" href="/css/ie8.css" />{{ safeHTML "<![endif]-->" }}
+		{{ safeHTML "<!--[if lte IE 9]>" }}<link rel="stylesheet" href="/css/ie9.css" />{{ safeHTML "<![endif]-->" }}
+		{{- partial "styles" . }}
+		{{- partial "headScripts" . }}
+	</head>
+	<body {{- if .IsHome }} class="landing"{{ end }}>
+		<div id="page-wrapper">
+			<header id="header" {{- if .IsHome }} class="alt"{{ end }}>
+				{{- partial "header" . }}
+			</header>
+			<main>
+				{{- block "main" . }}
+				<article id="main">
+					<header>
+						<h2>{{ block "title" . }}{{ .Title }}{{ end }}</h2>
+						<p>{{ block "subtitle" . }}{{ with .Params.subtitle }}{{ . }}{{ end }}{{ end }}</p>
+					</header>
+					{{- block "content" . }}
+					<div class="wrapper style5">
+						<div class="inner">
+							{{- block "innerContent" . }}
+							{{- end }}
+						</div>
+					</div>
+					{{- end }}
+				</article>
+				{{- end }}
+			</main>
+			<footer id="footer">
+				{{- partial "footer" . }}
+			</footer>
+		</div>
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/jquery.scrollex.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/util.js"></script>
+		{{ safeHTML "<!--[if lte IE 8]>" }}<script src="/js/ie/respond.min.js"></script>{{ safeHTML "<![endif]-->" }}
+		<script src="/js/main.js"></script>
+		{{- partial "tailScripts" . }}
+	</body>
+</html>

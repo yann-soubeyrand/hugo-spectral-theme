@@ -1,0 +1,8 @@
+							{{- define "innerContent" }}
+							<section>
+								{{ .Content }}
+							</section>
+							<section>
+								{{- partial "services" (dict "Pages" .Pages "HeadingLevel" 3) }}
+							</section>
+							{{- end }}

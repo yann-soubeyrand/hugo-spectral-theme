@@ -1,0 +1,23 @@
+{{- $page := .Page -}}
+{{- with .Reference -}}
+{{- $anchorMatches := findRE "#.*$" . -}}
+{{- $anchor := cond (gt (len $anchorMatches) 0) (index $anchorMatches 0) "" -}}
+{{- with replaceRE "#.*$" "" . -}}
+{{- if hasPrefix . "page:" -}}
+{{- with strings.TrimPrefix "page:" . -}}
+{{- with $page.Site.GetPage "page" . -}}
+{{- print .RelPermalink $anchor -}}
+{{- else -}}
+{{- with $page.Site.GetPage "section" . -}}
+{{- print .RelPermalink $anchor -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- else if hasPrefix . "resource:" -}}
+{{- with strings.TrimPrefix "resource:" . -}}
+{{- print ($page.Resources.GetMatch .).RelPermalink $anchor -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- /**/ -}}

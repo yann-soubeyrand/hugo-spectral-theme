@@ -1,0 +1,1 @@
+<a href="{{ partial "relURL" (dict "Page" .Page "Reference" (.Get "target")) }}" class="button {{- with .Get "classes" }} {{ . }}{{ end }}">{{ .Get "title" }}</a>

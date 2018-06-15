@@ -1,0 +1,9 @@
+				{{- /**/}}
+				<ul class="copyright">
+					{{- with .Site.GetPage "page" "legal-notices" }}
+					<li><a href="{{ .RelPermalink }}">{{ i18n "Legal notices" }}</a></li>
+					{{- end }}
+					<li>{{ safeHTML (i18n "Theme" (dict "theme" "<a href=\"https://github.com/yann-soubeyrand/hugo-spectral-theme\" target=\"_blank\">Spectral</a>")) }}</li>
+					<li>
+				</ul>
+				{{- /**/ -}}

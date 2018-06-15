@@ -1,0 +1,20 @@
+				{{- /**/}}
+				<section id="banner" class="wrapper">
+					<div class="inner">
+						{{- with index (where (.Resources.ByType "image") ".Params.logo" true) 0 }}
+						<span class="logo image center"><img src="{{ .RelPermalink }}" alt="{{ .Title }}" /></span>
+						{{- else }}
+						<h2>{{ .Site.Title }}</h2>
+						{{- end }}
+						{{ .Content }}
+						{{- if .Site.GetPage "section" "services" }}
+						<ul class="actions">
+							<li><a href="#services" class="button special scrolly">{{ .Params.buttons.services.label }}</a></li>
+						</ul>
+						{{- end }}
+					</div>
+					{{- if .Site.GetPage "section" "about" }}
+					<a href="#about" class="more scrolly">{{ i18n "Learn more" }}</a>
+					{{- end }}
+				</section>
+				{{- /**/ -}}

@@ -1,0 +1,7 @@
+				{{- /**/}}
+				{{- with .Site.GetPage "section" "posts" }}
+				<section id="posts" class="wrapper alt style2">
+					{{- partial "posts" (dict "Pages" (first 3 .Pages) "HeadingLevel" 2) }}
+				</section>
+				{{- end }}
+				{{- /**/ -}}

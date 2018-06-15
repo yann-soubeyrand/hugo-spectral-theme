@@ -1,0 +1,35 @@
+							{{- define "innerContent" }}
+							<section>
+								{{ .Content }}
+								<ul class="actions fit">
+									<li>
+										{{- with .PrevInSection }}
+										<a href="{{ .RelPermalink }}" class="button fit">{{ .LinkTitle }}</a>
+										{{- end }}
+									</li>
+									<li>
+										{{- with .NextInSection }}
+										<a href="{{ .RelPermalink }}" class="button fit">{{ .LinkTitle }}</a>
+										{{- end }}
+									</li>
+								</ul>
+							</section>
+							{{- with .Site.GetPage "section" "services" }}
+							{{- $page := . }}
+							{{- with where .Pages ".Params.categories" "intersect" $.Params.categories }}
+							<section>
+								<h3>{{ $page.Title }}</h3>
+								{{- partial "services" (dict "Pages" . "HeadingLevel" 4) }}
+							</section>
+							{{- end }}
+							{{- end }}
+							{{- with .Site.GetPage "section" "posts" }}
+							{{- $page := . }}
+							{{- with where .Pages ".Params.categories" "intersect" $.Params.categories }}
+							<section>
+								<h3>{{ $page.Title }}</h3>
+								{{- partial "posts" (dict "Pages" . "HeadingLevel" 4) }}
+							</section>
+							{{- end }}
+							{{- end }}
+							{{- end }}

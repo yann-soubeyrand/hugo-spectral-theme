@@ -1,0 +1,38 @@
+Menu:
+  other: "Menu"
+Learn more:
+  other: "Learn more"
+Read more:
+  other: "Read more"
+See:
+  other: "See"
+Legal notices:
+  other: "Legal notices"
+Theme:
+  other: "Theme: {{ .theme }}"
+Page not found:
+  other: "Page not found"
+The page you requested cannot be found:
+  other: "The page you requested cannot be found."
+Editor:
+  other: "Editor"
+Publication director:
+  other: "Publication director"
+Hosting company:
+  other: "Hosting company"
+Name:
+  other: "Name"
+Email:
+  other: "Email"
+Subject:
+  other: "Subject"
+Message:
+  other: "Message"
+Attachment:
+  other: "Attachment"
+Send:
+  other: "Send"
+Reset:
+  other: "Reset"
+Get to know:
+  other: "Get to know {{ .name }}"

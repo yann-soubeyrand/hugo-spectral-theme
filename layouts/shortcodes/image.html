@@ -1,0 +1,19 @@
+{{- $operation := .Get "operation" }}
+{{- $options := .Get "options" }}
+{{- $width := .Get "width" }}
+{{- $height := .Get "height" }}
+{{- $classes := .Get "classes" }}
+{{- with (.Page.Resources.ByType "image").GetMatch (.Get "source") }}
+{{- if eq $operation "resize" }}
+{{- $.Scratch.Set "image" (.Resize $options) }}
+{{- else if eq $operation "fit"}}
+{{- $.Scratch.Set "image" (.Fit $options) }}
+{{- else if eq $operation "fill"}}
+{{- $.Scratch.Set "image" (.Fill $options) }}
+{{- else }}
+{{- $.Scratch.Set "image" . }}
+{{- end }}
+{{- with $.Scratch.Get "image" }}
+<span class="image {{- with $classes }} {{ . }}{{ end }}" style="{{ with $width }}width: {{ . }}; {{ end }} {{- with $height }}height: {{ . }};{{ end }}"><img src="{{ .RelPermalink }}" alt="{{ .Title }}" /></span>
+{{- end }}
+{{- end }}

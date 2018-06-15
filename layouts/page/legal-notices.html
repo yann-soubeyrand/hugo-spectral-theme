@@ -1,0 +1,21 @@
+							{{- define "innerContent" }}
+							<section>
+								<h3>{{ i18n "Editor" }}</h3>
+								<p>{{ .Site.Params.editor.name }}<br />
+								{{- range .Site.Params.editor.address }}
+								{{ . }}<br />
+								{{- end }}
+								{{ .Site.Params.editor.phone }}</p>
+								<h3>{{ i18n "Publication director" }}</h3>
+								<p>{{ .Site.Params.publicationDirector }}</p>
+								<h3>{{ i18n "Hosting company" }}</h3>
+								<p>{{ .Site.Params.hostingCompany.name }}<br />
+								{{- range .Site.Params.hostingCompany.address }}
+								{{ . }}<br />
+								{{- end }}
+								{{ .Site.Params.hostingCompany.phone }}</p>
+							</section>
+							<section>
+								{{ .Content }}
+							</section>
+							{{- end }}

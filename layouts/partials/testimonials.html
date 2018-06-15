@@ -1,0 +1,19 @@
+						{{- /**/}}
+						{{- $hl1 := .HeadingLevel }}
+						<div class="box alt align-center">
+							<div class="row uniform">
+								{{- range .Pages }}
+								<div class="4u 12u$(medium)">
+									{{- with index (where (.Resources.ByType "image") ".Params.cover" true) 0 }}
+									<span class="image fit"><img src="{{ (.Fit "500x500").RelPermalink }}" alt="{{ .Title }}" /></span>
+									{{- end }}
+									<h{{ $hl1 }}>{{ .Title }}</h{{ $hl1 }}>
+									<p>{{ .Params.summary }}</p>
+									<ul class="actions">
+										<li><a href="{{ .RelPermalink }}" class="button">{{ i18n "See" }}</a></li>
+									</ul>
+								</div>
+								{{- end }}
+							</div>
+						</div>
+						{{- /**/ -}}

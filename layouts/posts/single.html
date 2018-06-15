@@ -1,0 +1,36 @@
+							{{- define "subtitle" }}{{ .Params.author }}<br />{{ .Date.Format "02.01.2006" }}{{ end }}
+							{{- define "innerContent" }}
+							<section>
+								{{ .Content }}
+								<ul class="actions fit">
+									<li>
+										{{- with .PrevInSection }}
+										<a href="{{ .RelPermalink }}" class="button fit">{{ .LinkTitle }}</a>
+										{{- end }}
+									</li>
+									<li>
+										{{- with .NextInSection }}
+										<a href="{{ .RelPermalink }}" class="button fit">{{ .LinkTitle }}</a>
+										{{- end }}
+									</li>
+								</ul>
+							</section>
+							{{- with .Site.GetPage "section" "services" }}
+							{{- $page := . }}
+							{{- with where .Pages ".Params.categories" "intersect" $.Params.categories }}
+							<section>
+								<h3>{{ $page.Title }}</h3>
+								{{- partial "services" (dict "Pages" . "HeadingLevel" 4) }}
+							</section>
+							{{- end }}
+							{{- end }}
+							{{- with .Site.GetPage "section" "testimonials" }}
+							{{- $page := . }}
+							{{- with where .Pages ".Params.categories" "intersect" $.Params.categories }}
+							<section>
+								<h3>{{ $page.Title }}</h3>
+								{{- partial "testimonials" (dict "Pages" . "HeadingLevel" 4) }}
+							</section>
+							{{- end }}
+							{{- end }}
+							{{- end }}
