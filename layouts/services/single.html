@@ -6,8 +6,8 @@
 							{{- $page := . }}
 							{{- with where .Pages ".Params.categories" "intersect" $.Params.categories }}
 							<section>
-								<h3>{{ $page.Title }}</h3>
-								{{- partial "testimonials" (dict "Pages" . "HeadingLevel" 4) }}
+								<h2>{{ $page.LinkTitle }}</h2>
+								{{- partial "testimonials" (dict "Pages" . "HeadingLevel" 3) }}
 							</section>
 							{{- end }}
 							{{- end }}
@@ -15,8 +15,8 @@
 							{{- $page := . }}
 							{{- with where .Pages ".Params.categories" "intersect" $.Params.categories }}
 							<section>
-								<h3>{{ $page.Title }}</h3>
-								{{- partial "posts" (dict "Pages" . "HeadingLevel" 4) }}
+								<h2>{{ $page.LinkTitle }}</h2>
+								{{- partial "posts" (dict "Pages" . "HeadingLevel" 3) }}
 							</section>
 							{{- end }}
 							{{- end }}

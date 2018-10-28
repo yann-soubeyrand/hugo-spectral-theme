@@ -8,4 +8,9 @@ categories:
 tags:
 - ""
 url: ""
+aliases:
+- ""
+seo:
+  title: ""
+  description: ""
 ---

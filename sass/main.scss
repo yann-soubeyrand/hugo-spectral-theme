@@ -85,7 +85,7 @@
 		margin: 0 0 _size(element-margin) 0;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
+	#title, h1, h2, h3, h4, h5, h6 {
 		font-weight: _font(weight-extrabold);
 		letter-spacing: _size(letter-spacing-alt);
 		line-height: 1em;
@@ -98,7 +98,7 @@
 		}
 	}
 
-	h2 {
+	h1, h2 {
 		font-size: 1.35em;
 		line-height: 1.75em;
 
@@ -211,23 +211,22 @@
 			top: -0.25em;
 		}
 
-		h2 + p {
+		h5 {
+			~ p {
+				font-size: 0.8em;
+			}
 		}
 
-		h3 + p {
-			font-size: 1.1em;
-		}
-
-		h4 + p,
-		h5 + p,
-		h6 + p {
-			font-size: 0.9em;
+		h6 {
+			~ p {
+				font-size: 0.7em;
+			}
 		}
 
 		&.major {
 			margin: 0 0 (_size(element-margin) * 1.75) 0;
 
-			h2, h3, h4, h5, h6 {
+			h1, h2, h3, h4, h5, h6 {
 				border-bottom: solid 2px;
 				display: inline-block;
 				padding-bottom: 1em;
@@ -1048,7 +1047,7 @@
 				}
 
 				&.major {
-					h2, h3, h4, h5, h6 {
+					h1, h2, h3, h4, h5, h6 {
 						border-color: _palette($p, border);
 					}
 
@@ -1398,7 +1397,7 @@
 		width: 100%;
 		z-index: _misc(z-index-base);
 
-		h1 {
+		#title {
 			@include vendor('transition', 'opacity #{_duration(transitions)} ease');
 			height: inherit;
 			left: 1.25em;
@@ -1483,7 +1482,7 @@
 		&.alt {
 			background: transparent;
 
-			h1 {
+			#title {
 				@include vendor('pointer-events', 'none');
 				opacity: 0;
 			}
@@ -1527,7 +1526,7 @@
 			}
 		}
 
-		h2 {
+		h1 {
 			@include vendor('transform', 'scale(1)');
 			@include vendor('transition', ('transform 0.5s ease', 'opacity 0.5s ease'));
 			display: inline-block;
@@ -1625,7 +1624,7 @@
 			height: auto;
 			min-height: 0;
 
-			h2 {
+			h1 {
 				font-size: 1.25em;
 			}
 
@@ -1641,7 +1640,7 @@
 
 	body.is-loading {
 		#banner {
-			h2 {
+			h1 {
 				@include vendor('transform', 'scale(0.95)');
 				opacity: 0;
 
@@ -1721,7 +1720,7 @@
 			background-size: cover;
 			text-align: center;
 
-			h2 {
+			h1 {
 				font-size: 1.75em;
 				margin: 0 0 (_size(element-margin) * 0.25) 0;
 			}
@@ -1752,7 +1751,7 @@
 			@include breakpoint(small) {
 				@include padding(5em, 3em);
 
-				h2 {
+				h1 {
 					font-size: 1.25em;
 					margin: 0 0 (_size(element-margin) * 0.5) 0;
 				}

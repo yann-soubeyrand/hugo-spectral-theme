@@ -1,12 +1,21 @@
+{{- .Scratch.Set "seoTitle" .Title -}}
+{{- with .Params.Seo.Title }}
+{{- $.Scratch.Set "seoTitle" . -}}
+{{- end }}
+{{- .Scratch.Set "seoDescription" .Summary -}}
+{{- with .Description }}
+{{- $.Scratch.Set "seoDescription" . -}}
+{{- end }}
+{{- with .Params.Seo.Description }}
+{{- $.Scratch.Set "seoDescription" . -}}
+{{- end }}
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>{{ .Site.Title }} - {{ block "breadcrumb" . }}{{ with .Parent }}{{ template "breadcrumb" . }} > {{ end }}{{ .LinkTitle }}{{ end }}</title>
-		{{- with .Description }}
-		<meta name="description" content="{{ . }}" />
-		{{- end }}
+		<title>{{ printf "%s | %s" (.Scratch.Get "seoTitle") .Site.Title }}</title>
+		<meta name="description" content="{{ .Scratch.Get "seoDescription" }}" />
 		{{- partial "meta" . }}
 		{{ .Hugo.Generator }}
 		{{ safeHTML "<!--[if lte IE 8]>" }}<script src="/js/ie/html5shiv.js"></script>{{ safeHTML "<![endif]-->" }}
@@ -25,7 +34,7 @@
 				{{- block "main" . }}
 				<article id="main">
 					<header>
-						<h2>{{ block "title" . }}{{ .Title }}{{ end }}</h2>
+						<h1>{{ block "title" . }}{{ .Title }}{{ end }}</h1>
 						<p>{{ block "subtitle" . }}{{ with .Params.subtitle }}{{ . }}{{ end }}{{ end }}</p>
 					</header>
 					{{- block "content" . }}

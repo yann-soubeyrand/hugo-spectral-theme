@@ -3,9 +3,8 @@
 					<div class="inner">
 						{{- with index (where (.Resources.ByType "image") ".Params.logo" true) 0 }}
 						<span class="logo image center"><img src="{{ .RelPermalink }}" alt="{{ .Title }}" /></span>
-						{{- else }}
-						<h2>{{ .Site.Title }}</h2>
 						{{- end }}
+						<h1>{{ .Title }}</h1>
 						{{ .Content }}
 						{{- if .Site.GetPage "section" "services" }}
 						<ul class="actions">

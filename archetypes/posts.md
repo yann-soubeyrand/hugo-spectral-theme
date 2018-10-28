@@ -11,5 +11,10 @@ resources:
   params:
     cover: true
 url: ""
+aliases:
+- ""
+seo:
+  title: ""
+  description: ""
 ---
 <!--more-->

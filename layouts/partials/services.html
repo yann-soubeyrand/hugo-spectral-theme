@@ -3,7 +3,7 @@
 						<ul class="features">
 							{{- range .Pages }}
 							<li class="icon {{ .Params.icon }}">
-								<h{{ $hl1 }}><a href="{{ .RelPermalink }}">{{ .Title }}</a></h{{ $hl1 }}>
+								<h{{ $hl1 }}><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h{{ $hl1 }}>
 								<p>{{ .Description }}</p>
 							</li>
 							{{- end }}
